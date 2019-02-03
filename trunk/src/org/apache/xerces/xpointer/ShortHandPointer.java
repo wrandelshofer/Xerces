@@ -228,6 +228,11 @@ final class ShortHandPointer implements XPointerPart {
             }
             
             // 4 & 5 NA
+        } else {
+            // Treat "id" attribute as ID if there is no schema.
+            if ("id".equals(attributes.getLocalName(index))) {
+                return attributes.getValue(index);
+            }
         }
         
         return null;
